@@ -15,15 +15,15 @@
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" />
 		<![endif]-->
-		
-		<link rel="stylesheet" href="css/style.css" />
+
+		<link rel="stylesheet" href="../src/js-custom-select/css/style.css" />
 
 	</head>
 
 	<body ng-app="Demo">
 		<div class="container" ng-controller="DemoController">
 			<h1>Custom Select Example</h1>
-			
+
 			<h2>Simple objects</h2>
 			<p>Selected fruit: {{ fruit }}</p>
 			<div custom-select ng-model="fruit" ng-options="f for f in fruits"></div>
@@ -32,10 +32,10 @@
 			<p>Selected state: {{ state }}</p>
 			<div custom-select ng-model="state" ng-options="s.id as s.name for s in states"></div>
 			<button type="button" class="btn" ng-click="reset()">Reset</button>
-			
+
 			<h2>Custom options</h2>
 			<h3>Change the appearance</h3>
-			
+
 			<div class="row">
 				<div class="span3">
 					<div custom-select="customOptions" ng-model="test" ng-options="g for g in custom" ng-disabled="!isCustomEnabled"></div>
@@ -49,13 +49,13 @@
 					</label>
 				</div>
 			</div>
-			
+
 			<h3>Add new items</h3>
 			<div custom-select="growableOptions" ng-model="custom1" ng-options="g for g in growable"></div>
-			
+
 			<h3>Custom filtering</h3>
 			<div custom-select="asyncOptions" ng-model="custom2" ng-options="a for a in async"></div>
-			
+
 			<h3>Custom item template</h3>
 			<p>Selected person: {{ person | json }}</p>
 			<div custom-select ng-model="person" ng-options="t as t.name for t in people">
@@ -72,7 +72,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		
+
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<!-- <![endif]-->
 
@@ -86,8 +86,8 @@
 			// This is needed in order to use the format filter
 			angular.module('ui.filters', []);
 		</script>
-		<script src="js/format.js"></script>
-		<script src="js/customSelect.js"></script>
+		<script src="../src/js-custom-select/filters/format.js"></script>
+		<script src="../js/customSelect.js"></script>
 		<script>
 			(function () {
 				var app = angular.module('Demo', ['ui.filters', 'AxelSoft']);
@@ -190,7 +190,7 @@
 								$scope.async = ['Item 1', 'Item 2', 'Item 3'];
 								return;
 							}
-							
+
 							// Simulate asynchronous ajax call
 							$timeout(function () {
 								var result = [];
@@ -209,7 +209,7 @@
 						{ name: 'Walter White', phone: '303-111-2222', picture: 'http://upstreamideas.org/wp-content/uploads/2013/10/ww.jpg' }
 					];
 				}]);
-				
+
 			})();
 		</script>
 	</body>
